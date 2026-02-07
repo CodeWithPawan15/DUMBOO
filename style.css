@@ -4,19 +4,21 @@
   box-sizing: border-box;
 }
 
+/* FORCE CENTER EVERYTHING */
 body {
   min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background: white;
   font-family: "Quicksand", sans-serif;
 }
 
-/* MAIN WRAPPER */
+/* THIS IS THE MAGIC FIX */
 .container {
+  position: fixed;              /* 🔑 override all layout chaos */
+  inset: 0;                     /* top right bottom left = 0 */
+  margin: auto;                 /* 🔑 hard center */
   width: 90vw;
   max-width: 420px;
+  height: fit-content;
   text-align: center;
   overflow: hidden;
 }
@@ -76,7 +78,6 @@ body {
   transform: scale(1.1);
 }
 
-/* BUTTON POSITIONS */
 .yes-btn {
   left: 20%;
 }
@@ -100,7 +101,7 @@ body {
   align-items: center;
 }
 
-/* MOBILE OPTIMIZATION */
+/* MOBILE */
 @media (max-width: 600px) {
   .question {
     font-size: 2rem;
